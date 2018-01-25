@@ -25,13 +25,17 @@ class Solution(object):
         :return: str
         """
         start, end = 0, 0
+        length_max = 0
         for i in xrange(len(s)):
+            if length_max/2 >= len(s) - i:
+                return s[start: end + 1]
             len1 = self.expand_from_centre(s, i, i)
             len2 = self.expand_from_centre(s, i, i+1)
             max_len = max(len1,len2)
-            if max_len > end - start + 1:
+            if max_len >= length_max:
                 start = i - (max_len-1)/2
                 end = i + max_len/2
+                length_max = max_len
         return s[start: end + 1]
 
 
