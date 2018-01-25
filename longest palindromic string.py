@@ -30,8 +30,8 @@ class Solution(object):
             len2 = self.expand_from_centre(s, i, i+1)
             max_len = max(len1,len2)
             if max_len > end - start + 1:
-                start = i - (max(len1,len2)-1)/2
-                end = i + max(len1,len2)/2
+                start = i - (max_len-1)/2
+                end = i + max_len/2
         return s[start: end + 1]
 
 
@@ -44,7 +44,7 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-        print Solution().longestPalindrome('daadb')
+        print Solution().longestPalindrome('dabcdcbadd')
 
 
 
