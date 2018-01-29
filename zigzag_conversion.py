@@ -20,5 +20,27 @@ class Solution(object):
                         rs = rs + s[idx1]
         return rs
 
+    def convert2(self, s, numRows):
+        """
+        :type s: str
+        :type numRows: int
+        :rtype: str
+        """
+        if numRows == 1 or numRows >= len(s):
+            return s
+
+        rs = [''] * numRows
+        idx, step = 0, 1
+
+        for x in s:
+            rs[idx] += x
+            if idx == 0:
+                step = 1
+            elif idx == numRows - 1:
+                step = -1
+            idx += step
+
+        return ''.join(rs)
+
 if __name__ == '__main__':
         print Solution().convert('ABCDE', 4)
