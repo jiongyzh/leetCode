@@ -15,7 +15,7 @@ class Solution(object):
             result = result * 10 + x % 10
             x /= 10
 
-        return result if result < 0x7fffffff else 0
+        return result if result < 0x80000000 else 0
 
     def reverse2(self, x):
         """
@@ -27,6 +27,6 @@ class Solution(object):
         else:
             x = int(str(x)[::-1])
 
-        return x if (x > -0x80000001 and x < 0x80000000) else 0
+        return x if (x >= -2 ** 31 and x < 2 ** 31) else 0
 
 
