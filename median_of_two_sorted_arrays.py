@@ -15,7 +15,6 @@ class Solution(object):
         # only one median number
         return Solution.get_Kth(nums1, 0, nums2, 0, total_length/2 +1)
 
-
     @staticmethod
     # return Kth number
     def get_Kth(l1, start1, l2, start2, k):
@@ -38,4 +37,4 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    print Solution().findMedianSortedArrays([1,2,3,4,5], [])
+    print Solution().findMedianSortedArrays([1,2,3,4,5,6,7], [1,2])
