@@ -7,18 +7,17 @@ class Solution(object):
         s_clean = ''
         sign = 1
         s = str.strip()
-        if s == '':
-            return 0
-        if s[0] == '-':
-            sign = -1
-            s = s[1:]
-        elif s[0] == '+':
-            s = s[1:]
 
-        for x in s:
-
-            if '0' <= x <= '9':
-                s_clean += x
+        for i in range(len(s)):
+            if '0' <= s[i] <= '9':
+                s_clean += s[i]
+            elif i == 0:
+                if s[i] == '-':
+                    sign = -1
+                elif s[i] == '+':
+                    pass
+                else:
+                    return 0
             else:
                 break
 
