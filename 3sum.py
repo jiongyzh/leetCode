@@ -5,19 +5,16 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         res = []
-        previous_i = None
         nums.sort()
         for i in range(0, len(nums)-2):
-            j = i + 1
-            k = len(nums)-1
-            if nums[i] == previous_i:
+            if i > 0 and nums[i] == nums[i-1]:
                 continue
-            else:
-                previous_i = nums[i]
+            j, k = i + 1, len(nums) - 1
             while k > j:
-                if nums[i] + nums[j] + nums[k] > 0:
+                s = nums[i] + nums[j] + nums[k]
+                if s > 0:
                     k -= 1
-                elif nums[i] + nums[j] + nums[k] < 0:
+                elif s < 0:
                     j += 1
                 else:
                     res.append([nums[i], nums[j], nums[k]])
