@@ -13,7 +13,7 @@ class Solution(object):
         for _ in range(n):
             prob = prob.next
 
-        while prob.next is not None:
+        while prob.next:
             cur = cur.next
             prob = prob.next
 
