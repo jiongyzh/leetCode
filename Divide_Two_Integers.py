@@ -1,5 +1,5 @@
 class Solution(object):
-    def divide(self, dividend, divisor):
+    def divide0(self, dividend, divisor):
         """
         :type dividend: int
         :type divisor: int
@@ -33,11 +33,39 @@ class Solution(object):
             res.append(str(q))
 
         res = int(''.join(res)) * sign
-        print res
         if res > 2**31 - 1 or res < -2**31:
             return 2**31 - 1
         return res
 
+
+    def divide(self, dividend, divisor):
+        """
+        :type dividend: int
+        :type divisor: int
+        :rtype: int
+        """
+
+        divid = abs(dividend)
+        divis = abs(divisor)
+        if divis > divid:
+            return 0
+
+        res = 0
+        while divid >= divis:
+            tmp, i = divis, 1
+            while divid >= tmp:
+                divid -= tmp
+                res += i
+                tmp += tmp
+                i += i
+
+        if (divisor < 0 < dividend) or (dividend < 0 < divisor):
+            res = -res
+
+        if res > 2**31 - 1 or res < -2**31:
+            return 2**31 - 1
+
+        return res
+
 if __name__ == '__main__':
     Solution().divide(-2147483648, -1)
-
