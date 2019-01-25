@@ -1,5 +1,5 @@
 class Solution(object):
-    def nextPermutation(self, nums):
+    def nextPermutation0(self, nums):
         """
         :type nums: List[int]
         :rtype: void Do not return anything, modify nums in-place instead.
@@ -22,6 +22,21 @@ class Solution(object):
             nums[i:] = sorted(nums[i:])
         return nums
 
+    def nextPermutation(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: void Do not return anything, modify nums in-place instead.
+        """
+        for i in range(len(nums)-2, -1, -1):
+            for j in range(len(nums)-1, i, -1):
+                if nums[i] < nums[j]:
+                    break
+            if nums[i] < nums[j]:
+                nums[i], nums[j] = nums[j], nums[i]
+                nums[i+1:] = sorted(nums[i+1:])
+                return
+        nums.sort()
+        return
 
 if __name__ == '__main__':
     print Solution().nextPermutation([1,3,2])
