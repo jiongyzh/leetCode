@@ -14,7 +14,6 @@ class Solution(object):
         if i == 0:
             return nums.sort()
         else:
-            nums[i:] = sorted(nums[i:], reverse=True)
             while i-1 < j:
                 if nums[j] > nums[i-1]:
                     nums[i-1], nums[j] = nums[j], nums[i-1]
