@@ -32,7 +32,6 @@ class Solution(object):
         w_dst = list(set(words))
         w_cnt = list(words.count(x) for x in w_dst)
         w_dic = dict(zip(w_dst, w_cnt))
-        print w_dic
 
         for i in range(m-n*o+1):
             target = w_dic.copy()
